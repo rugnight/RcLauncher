@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Launcher"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="278.667" Width="615">
+	<Grid>
+		<TextBox x:Name="InputField" MaxLines="1" TextWrapping="Wrap" Text="{Binding InputText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="29" VerticalAlignment="Top"/>
+		<ListView x:Name="ResultList" ItemsSource="{Binding}" SelectionMode="Single" RenderTransformOrigin="-1.3,2" SelectionChanged="ListView_SelectionChanged" Margin="0,29,0,0">
+			<ListView.View>
+				<GridView>
+					<GridViewColumn DisplayMemberBinding="{Binding Path=Name}">
+						<GridViewColumnHeader Content="Name" Tag="Name" Width="173" />
+					</GridViewColumn>
+					<GridViewColumn DisplayMemberBinding="{Binding Path=Path}">
+						<GridViewColumnHeader Content="Path" Tag="Path" Width="513" />
+					</GridViewColumn>
+				</GridView>
+			</ListView.View>
+		</ListView>
+
+	</Grid>
 </Window>
